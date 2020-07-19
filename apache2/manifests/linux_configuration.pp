@@ -32,10 +32,10 @@ class apache2::linux_configuration {
     #command     => 'mount -a'
   #}
   
-  file{'/ebs'
+  file{'/ebs':
     ensure => 'directory',
     owner  => 'root',
-    mode   => '0755',
+    mode   => '0755'
   }
 
   #Copy custom index.html file to ebs volume
