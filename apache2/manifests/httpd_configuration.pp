@@ -1,9 +1,9 @@
-# @summary A short summary of the purpose of this class
+# @summary Configures apache on linux server
 #
-# A description of what this class does
-#
-# @example
-#   include apache2::apache2_configuration
+# Install apache
+# modify the configuration of apache in /etc/httpd
+# Start it as a service and enable on boot.
+
 class apache2::httpd_configuration {
   exec{'updates':
     path    => '/usr/bin',

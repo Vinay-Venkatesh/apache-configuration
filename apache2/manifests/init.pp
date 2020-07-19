@@ -1,9 +1,7 @@
-# @summary A short summary of the purpose of this class
+# @summary Start of the configuration
 #
-# A description of what this class does
-#
-# @example
-#   include apache2
+# Contains linux configuration and httpd manifests initializtion
+
 class apache2 {
   contain apache2::linux_configuration
   contain apache2::httpd_configuration
