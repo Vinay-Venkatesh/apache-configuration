@@ -15,9 +15,14 @@ class apache2::apache2_configuration {
     command => 'apt install apache2 -y'
   }
 
-  exec{'copy apache2 config':
+  exec{'copy apache2 sites config':
     path    => '/bin',
     command => 'cp /etc/puppetlabs/code/environment/production/modules/apache2/files/000-default.conf /etc/apache2/sites-available'
+  } ->
+
+  exec{'copy apache2 config':
+    path    => '/bin',
+    command => 'cp /etc/puppetlabs/code/environment/production/modules/apache2/files/apache2.conf /etc/apache2/'
   } ->
 
   exec{'enable service':

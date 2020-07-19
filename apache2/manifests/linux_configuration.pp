@@ -28,13 +28,18 @@ class apache2::linux_configuration {
 
   #Mount volumes
   exec{'mount_volumes':
-    path        => '/usr/bin',
+    path        => '/bin',
     command     => 'mount -a'
   }
 
   #Copy custom index.html file to ebs volume
   exec{'copy index.html':
-    path    => '/usr/bin',
+    path    => '/bin',
     command => 'cp /etc/puppetlabs/code/environment/production/modules/apache2/files/index.html /ebs'
+  }
+
+  exec{'change filesystem permission':
+    path    => '/bin',
+    command => 'chmod 755 -R /ebs'
   }
 }
