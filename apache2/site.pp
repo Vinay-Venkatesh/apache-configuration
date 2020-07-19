@@ -1,16 +1,16 @@
 # Run Stages
 stage { 'linux_configuration': }
-stage { 'apache2': }
+stage { 'httpd': }
 
-Stage['linux_configuration'] -> Stage['apache2']
+Stage['linux_configuration'] -> Stage['httpd']
 
 #Node Definition
 class { 'apache2::linux_configuration':
   stage => 'linux_configuration'
 }
 
-class { 'apache2::apache2_configuration':
-  stage => 'apache2'
+class { 'apache2::httpd_configuration':
+  stage => 'httpd'
 }
 
 
