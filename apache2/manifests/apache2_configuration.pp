@@ -24,14 +24,14 @@ class apache2::apache2_configuration {
     path    => '/bin',
     command => 'cp /etc/puppetlabs/code/environment/production/modules/apache2/files/apache2.conf /etc/apache2/'
   } ->
+  
+  exec{'start service':
+    path    => '/bin',
+    command => 'systemctl start apache2'
+  }
 
   exec{'enable service':
     path    => '/bin',
     command => 'systemctl enable apache2'
-  }
-
-  exec{'start service':
-    path    => '/bin',
-    command => 'systemctl start apache2'
   }
 }
